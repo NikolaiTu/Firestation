@@ -45,7 +45,8 @@ namespace FirestationSystem
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(UsernameTextBox.Text)||string.IsNullOrEmpty(PasswordTextBox.Text))
+
+            if (string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(PasswordTextBox.Text))
             {
                 MessageBox.Show("All fields must be filled");
             }
@@ -54,11 +55,17 @@ namespace FirestationSystem
                 var Register = new Register
                 {
                     Name = UsernameTextBox.Text,
-                    Password = PasswordTextBox.Text
+                    Password = PasswordTextBox.Text,
                 };
 
-                //FirebaseResponse response = client.Set("Users/"+);
+                //.push creates unique key
+                FirebaseResponse response = client.Push("Users/", Register);
 
+                Register res = response.ResultAs<Register>();
+                MessageBox.Show("Register Account Successfully");
+                //id.Text = string.Empty;
+                //username.Text = string.Empty;
+                //password.Text = string.Empty;
             }
         }
     }
