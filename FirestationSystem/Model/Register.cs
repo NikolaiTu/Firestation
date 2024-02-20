@@ -8,6 +8,7 @@ namespace FirestationSystem.Model
 {
     class Register
     {
+        //public string ID { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
     }
