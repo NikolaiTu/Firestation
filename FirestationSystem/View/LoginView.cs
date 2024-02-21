@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,11 @@ namespace FirestationSystem.View
             }
         }
 
-        public static string UsernamePass;
+
+        //public static string GlobalUsername;
+        //public static string GlobalTeam;
+        //public static string GlobalStatus;
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(PasswordTextBox.Text))
@@ -63,25 +68,32 @@ namespace FirestationSystem.View
 
                         if (PasswordTextBox.Text == PassResult)
                         {
-                            UsernamePass = UsernameTextBox.Text;
+                            GlobalVariables.GlobalUsername = UsernameTextBox.Text;
+                            GlobalVariables.GlobalTeam = get.Value.Team;
+                            GlobalVariables.GlobalStatus = get.Value.Status;
+                            GlobalVariables.GlobalIdentifier = get.Key;
 
                             MessageBox.Show("Welcome " + UsernameTextBox.Text);
-                            //Declare some public string so you can pass the data to the another Frame.
-                            //home home = new home();
-                            //this.Hide();
-                            //home.ShowDialog();
+
+                            Hide();
+                            PortalView portalView = new PortalView();
+                            portalView.Show();
                         }
                         else
                         {
                             MessageBox.Show("Wrong Password");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Wrong username");
-                    }
+                    break;
                 }
             }
+        }
+
+        private void RegisterViewButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RegisterView registerView = new RegisterView();
+            registerView.Show();
         }
     }
 }
