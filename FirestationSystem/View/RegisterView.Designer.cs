@@ -32,6 +32,8 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.Label = new System.Windows.Forms.Label();
+            this.RegisterViewButton = new System.Windows.Forms.Button();
+            this.cbmTeamBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // UsernameTextBox
@@ -69,11 +71,31 @@
             this.Label.TabIndex = 3;
             this.Label.Text = "Register";
             // 
+            // RegisterViewButton
+            // 
+            this.RegisterViewButton.Location = new System.Drawing.Point(308, 106);
+            this.RegisterViewButton.Name = "RegisterViewButton";
+            this.RegisterViewButton.Size = new System.Drawing.Size(48, 23);
+            this.RegisterViewButton.TabIndex = 4;
+            this.RegisterViewButton.Text = "Login";
+            this.RegisterViewButton.UseVisualStyleBackColor = true;
+            this.RegisterViewButton.Click += new System.EventHandler(this.RegisterViewButton_Click);
+            // 
+            // cbmTeamBox
+            // 
+            this.cbmTeamBox.FormattingEnabled = true;
+            this.cbmTeamBox.Location = new System.Drawing.Point(235, 40);
+            this.cbmTeamBox.Name = "cbmTeamBox";
+            this.cbmTeamBox.Size = new System.Drawing.Size(121, 21);
+            this.cbmTeamBox.TabIndex = 5;
+            // 
             // RegisterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 141);
+            this.ClientSize = new System.Drawing.Size(368, 141);
+            this.Controls.Add(this.cbmTeamBox);
+            this.Controls.Add(this.RegisterViewButton);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.PasswordTextBox);
@@ -92,6 +114,8 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Label Label;
+        private System.Windows.Forms.Button RegisterViewButton;
+        private System.Windows.Forms.ComboBox cbmTeamBox;
     }
 }
 

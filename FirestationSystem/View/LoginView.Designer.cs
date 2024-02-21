@@ -32,6 +32,7 @@
             this.LoginButton = new System.Windows.Forms.Button();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.RegisterViewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label
@@ -69,11 +70,22 @@
             this.UsernameTextBox.Size = new System.Drawing.Size(162, 20);
             this.UsernameTextBox.TabIndex = 4;
             // 
+            // RegisterViewButton
+            // 
+            this.RegisterViewButton.Location = new System.Drawing.Point(202, 106);
+            this.RegisterViewButton.Name = "RegisterViewButton";
+            this.RegisterViewButton.Size = new System.Drawing.Size(59, 23);
+            this.RegisterViewButton.TabIndex = 8;
+            this.RegisterViewButton.Text = "Register";
+            this.RegisterViewButton.UseVisualStyleBackColor = true;
+            this.RegisterViewButton.Click += new System.EventHandler(this.RegisterViewButton_Click);
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 135);
+            this.ClientSize = new System.Drawing.Size(273, 135);
+            this.Controls.Add(this.RegisterViewButton);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextBox);
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.Button RegisterViewButton;
     }
 }

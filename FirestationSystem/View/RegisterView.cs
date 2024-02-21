@@ -13,6 +13,7 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using FirestationSystem.Model;
+using FirestationSystem.View;
 
 namespace FirestationSystem
 {
@@ -35,6 +36,15 @@ namespace FirestationSystem
             try
             {
                 client = new FireSharp.FirebaseClient(config);
+
+                FirebaseResponse response = client.Get("Teams/");
+                Dictionary<string, string> teamsResult = response.ResultAs<Dictionary<string, string>>();
+
+                foreach (var teamName in teamsResult.Values)
+                {
+                    cbmTeamBox.Items.Add(teamName);
+                }
+
                 MessageBox.Show("connected");
             }
             catch (Exception ex)
@@ -45,8 +55,8 @@ namespace FirestationSystem
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(PasswordTextBox.Text))
+            
+            if (string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(PasswordTextBox.Text) || string.IsNullOrEmpty(cbmTeamBox.SelectedText))
             {
                 MessageBox.Show("All fields must be filled");
             }
@@ -56,6 +66,8 @@ namespace FirestationSystem
                 {
                     Name = UsernameTextBox.Text,
                     Password = PasswordTextBox.Text,
+                    Team = cbmTeamBox.SelectedItem.ToString(),
+                    Status = "Available"
                 };
 
                 //.push creates unique key
@@ -67,6 +79,13 @@ namespace FirestationSystem
                 //username.Text = string.Empty;
                 //password.Text = string.Empty;
             }
+        }
+
+        private void RegisterViewButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginView loginView = new LoginView();
+            loginView.Show();
         }
     }
 }
