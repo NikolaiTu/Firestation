@@ -50,6 +50,7 @@
             this.DisasterViewButton.TabIndex = 1;
             this.DisasterViewButton.Text = "Disasters";
             this.DisasterViewButton.UseVisualStyleBackColor = true;
+            this.DisasterViewButton.Click += new System.EventHandler(this.DisasterViewButton_Click);
             // 
             // PortalView
             // 

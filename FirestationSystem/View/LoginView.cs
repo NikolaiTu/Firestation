@@ -78,13 +78,13 @@ namespace FirestationSystem.View
                             Hide();
                             PortalView portalView = new PortalView();
                             portalView.Show();
+                            break;
                         }
                         else
                         {
                             MessageBox.Show("Wrong Password");
                         }
                     }
-                    break;
                 }
             }
         }
@@ -94,6 +94,13 @@ namespace FirestationSystem.View
             Hide();
             RegisterView registerView = new RegisterView();
             registerView.Show();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            PortalView portalView = new PortalView();
+            portalView.Show();
         }
     }
 }
