@@ -72,11 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentReport.cs" />
-    <Compile Include="Controller\TruckLoader.cs" />
     <Compile Include="Model\Incidents.cs" />
     <Compile Include="Model\Register.cs" />
     <Compile Include="Model\GlobalVariables.cs" />
-    <Compile Include="Model\Truck.cs" />
     <Compile Include="View\AccountView.cs">
       <SubType>Form</SubType>
     </Compile>

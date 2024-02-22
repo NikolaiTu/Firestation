@@ -13,6 +13,6 @@ namespace FirestationSystem.Model
         public string Type { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public List<Truck> DispatchedTrucks { get; set; } = new List<Truck>();
+        public string Responders { get; set; }
     }
 }

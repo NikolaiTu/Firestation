@@ -19,7 +19,7 @@ namespace FirestationSystem.Controller
             client = firebaseClient;
         }
 
-        public void AddIncident(string name, string gps, string type, string description, string status, List<Truck> dispatchedTrucks)
+        public void AddIncident(string name, string gps, string type, string description, string status, string responders)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace FirestationSystem.Controller
                     Type = type,
                     Description = description,
                     Status = status,
-                    DispatchedTrucks = dispatchedTrucks
+                    Responders = responders
                 };
 
                 PushResponse response = client.Push("Disasters/", newIncident);

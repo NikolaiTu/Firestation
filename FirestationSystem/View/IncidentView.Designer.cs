@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGrid = new System.Windows.Forms.DataGridView();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -41,24 +41,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            this.ResponderCmbBox = new System.Windows.Forms.ComboBox();
+            this.cbmResponderBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(115, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(578, 263);
-            this.dataGridView1.TabIndex = 0;
+            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGrid.Location = new System.Drawing.Point(115, 12);
+            this.DataGrid.Name = "DataGrid";
+            this.DataGrid.Size = new System.Drawing.Size(660, 263);
+            this.DataGrid.TabIndex = 0;
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(8, 364);
+            this.SubmitButton.Location = new System.Drawing.Point(8, 354);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(100, 23);
             this.SubmitButton.TabIndex = 2;
@@ -156,13 +154,13 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // ResponderCmbBox
+            // cbmResponderBox
             // 
-            this.ResponderCmbBox.FormattingEnabled = true;
-            this.ResponderCmbBox.Location = new System.Drawing.Point(8, 308);
-            this.ResponderCmbBox.Name = "ResponderCmbBox";
-            this.ResponderCmbBox.Size = new System.Drawing.Size(101, 21);
-            this.ResponderCmbBox.TabIndex = 14;
+            this.cbmResponderBox.FormattingEnabled = true;
+            this.cbmResponderBox.Location = new System.Drawing.Point(8, 308);
+            this.cbmResponderBox.Name = "cbmResponderBox";
+            this.cbmResponderBox.Size = new System.Drawing.Size(101, 21);
+            this.cbmResponderBox.TabIndex = 14;
             // 
             // label6
             // 
@@ -173,32 +171,13 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Responding team";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(139, 277);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Responding truck";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(124, 293);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBox1.TabIndex = 18;
-            // 
             // IncidentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 389);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(790, 389);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.ResponderCmbBox);
+            this.Controls.Add(this.cbmResponderBox);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -211,11 +190,11 @@
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SubmitButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGrid);
             this.Name = "IncidentView";
             this.Text = "Incidents";
             this.Load += new System.EventHandler(this.IncidentView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +202,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGrid;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox DescriptionTextBox;
@@ -236,9 +215,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.ComboBox ResponderCmbBox;
+        private System.Windows.Forms.ComboBox cbmResponderBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

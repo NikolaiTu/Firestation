@@ -17,9 +17,6 @@ namespace FirestationSystem.View
 {
     public partial class IncidentView : Form
     {
-        private IncidentReport incidentReportController;
-        private TruckLoader truckLoader;
-
         public IncidentView()
         {
             InitializeComponent();
@@ -37,69 +34,40 @@ namespace FirestationSystem.View
             try
             {
                 client = new FireSharp.FirebaseClient(config);
-
-                FirebaseResponse response = client.Get("Disasters/DispatchedTrucks");
-                List<string> dispatchedTruckNames = response.ResultAs<List<string>>();
-
-                truckLoader = new TruckLoader(client);
-                truckLoader.LoadTrucks(this.Controls, dispatchedTruckNames);
-
-                response = client.Get("Disasters/");
-                Dictionary<string, Incidents> incidentsResult = response.ResultAs<Dictionary<string, Incidents>>();
-
-                List<Incidents> incidents = incidentsResult.Values.ToList();
-
-                dataGridView1.DataSource = incidents;
-
                 MessageBox.Show("Connected");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+            FirebaseResponse response = client.Get("Disasters/");
+            Dictionary<string, Incidents> incidentDict = response.ResultAs<Dictionary<string, Incidents>>();
 
-        private List<Truck> GetSelectedTrucks()
-        {
-            List<Truck> selectedTrucks = new List<Truck>();
+            FirebaseResponse TeamsResponse = client.Get("Teams/");
+            Dictionary<string, string> teamsResult = TeamsResponse.ResultAs<Dictionary<string, string>>();
 
-            foreach (var control in Controls)
+            List<Incidents> incidents = incidentDict.Values.ToList();
+            DataGrid.DataSource = incidents;
+
+            foreach (var teamName in teamsResult.Values)
             {
-                if (control is CheckBox checkbox && checkbox.Checked)
-                {
-                    var truck = new Truck
-                    {
-                        TruckId = checkbox.Tag.ToString(),
-                        Name = checkbox.Text,
-                        Status = "Dispatched"
-                    };
-
-                    selectedTrucks.Add(truck);
-                }
+                cbmResponderBox.Items.Add(teamName);
             }
-
-            return selectedTrucks;
         }
+
+
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            List<Truck> selectedTrucks = GetSelectedTrucks();
+            var incidentReportController = new IncidentReport(client);
 
-            incidentReportController.AddIncident(NameTextBox.Text, GpsTextBox.Text, TypeTextBox.Text, DescriptionTextBox.Text, StatusTextBox.Text, selectedTrucks);
+            incidentReportController.AddIncident(NameTextBox.Text, GpsTextBox.Text, TypeTextBox.Text, DescriptionTextBox.Text, StatusTextBox.Text, cbmResponderBox.SelectedItem.ToString());
 
             NameTextBox.Clear();
             GpsTextBox.Clear();
             TypeTextBox.Clear();
             DescriptionTextBox.Clear();
             StatusTextBox.Clear();
-
-            foreach (var control in Controls)
-            {
-                if (control is CheckBox checkbox)
-                {
-                    checkbox.Checked = false;
-                }
-            }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
