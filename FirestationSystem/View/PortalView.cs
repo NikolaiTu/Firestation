@@ -23,5 +23,12 @@ namespace FirestationSystem.View
             AccountView account = new AccountView();
             account.Show();
         }
+
+        private void DisasterViewButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            IncidentView incidentView = new IncidentView();
+            incidentView.Show();
+        }
     }
 }
