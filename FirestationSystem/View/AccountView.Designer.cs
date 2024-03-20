@@ -37,6 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.StatusCmbBox = new System.Windows.Forms.ComboBox();
             this.StatusConfirmButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +121,22 @@
             this.StatusConfirmButton.UseVisualStyleBackColor = true;
             this.StatusConfirmButton.Click += new System.EventHandler(this.StatusConfirmButton_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(194, 4);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(23, 23);
+            this.BackButton.TabIndex = 9;
+            this.BackButton.Text = ">";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // AccountView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(223, 133);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.StatusConfirmButton);
             this.Controls.Add(this.StatusCmbBox);
             this.Controls.Add(this.label5);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox StatusCmbBox;
         private System.Windows.Forms.Button StatusConfirmButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

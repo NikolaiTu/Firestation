@@ -78,5 +78,12 @@ namespace FirestationSystem.View
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            PortalView portalView = new PortalView();
+            portalView.Show();
+        }
     }
 }

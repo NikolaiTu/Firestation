@@ -33,7 +33,6 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.RegisterViewButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label
@@ -81,22 +80,11 @@
             this.RegisterViewButton.UseVisualStyleBackColor = true;
             this.RegisterViewButton.Click += new System.EventHandler(this.RegisterViewButton_Click);
             // 
-            // BackButton
-            // 
-            this.BackButton.Location = new System.Drawing.Point(202, 12);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(59, 23);
-            this.BackButton.TabIndex = 9;
-            this.BackButton.Text = "Back";
-            this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 135);
-            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.RegisterViewButton);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.LoginButton);
@@ -117,6 +105,5 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.Button RegisterViewButton;
-        private System.Windows.Forms.Button BackButton;
     }
 }
