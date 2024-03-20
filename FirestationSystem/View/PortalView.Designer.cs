@@ -30,6 +30,7 @@
         {
             this.AccountViewButton = new System.Windows.Forms.Button();
             this.DisasterViewButton = new System.Windows.Forms.Button();
+            this.VehicleViewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AccountViewButton
@@ -44,7 +45,7 @@
             // 
             // DisasterViewButton
             // 
-            this.DisasterViewButton.Location = new System.Drawing.Point(12, 52);
+            this.DisasterViewButton.Location = new System.Drawing.Point(12, 50);
             this.DisasterViewButton.Name = "DisasterViewButton";
             this.DisasterViewButton.Size = new System.Drawing.Size(96, 23);
             this.DisasterViewButton.TabIndex = 1;
@@ -52,11 +53,22 @@
             this.DisasterViewButton.UseVisualStyleBackColor = true;
             this.DisasterViewButton.Click += new System.EventHandler(this.DisasterViewButton_Click);
             // 
+            // VehicleViewButton
+            // 
+            this.VehicleViewButton.Location = new System.Drawing.Point(12, 89);
+            this.VehicleViewButton.Name = "VehicleViewButton";
+            this.VehicleViewButton.Size = new System.Drawing.Size(96, 23);
+            this.VehicleViewButton.TabIndex = 2;
+            this.VehicleViewButton.Text = "Vehicles";
+            this.VehicleViewButton.UseVisualStyleBackColor = true;
+            this.VehicleViewButton.Click += new System.EventHandler(this.VehicleViewButton_Click);
+            // 
             // PortalView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(120, 90);
+            this.ClientSize = new System.Drawing.Size(120, 124);
+            this.Controls.Add(this.VehicleViewButton);
             this.Controls.Add(this.DisasterViewButton);
             this.Controls.Add(this.AccountViewButton);
             this.Name = "PortalView";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button AccountViewButton;
         private System.Windows.Forms.Button DisasterViewButton;
+        private System.Windows.Forms.Button VehicleViewButton;
     }
 }

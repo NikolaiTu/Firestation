@@ -95,12 +95,5 @@ namespace FirestationSystem.View
             RegisterView registerView = new RegisterView();
             registerView.Show();
         }
-
-        private void BackButton_Click(object sender, EventArgs e)
-        {
-            Hide();
-            PortalView portalView = new PortalView();
-            portalView.Show();
-        }
     }
 }

@@ -43,6 +43,10 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.cbmResponderBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DeletionTextBox = new System.Windows.Forms.TextBox();
+            this.RefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,11 +175,51 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Responding team";
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(172, 353);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(100, 23);
+            this.DeleteButton.TabIndex = 16;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(183, 292);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Delete incident";
+            // 
+            // DeletionTextBox
+            // 
+            this.DeletionTextBox.Location = new System.Drawing.Point(172, 309);
+            this.DeletionTextBox.Name = "DeletionTextBox";
+            this.DeletionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DeletionTextBox.TabIndex = 18;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Location = new System.Drawing.Point(115, 252);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.RefreshButton.TabIndex = 19;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
             // IncidentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 389);
+            this.Controls.Add(this.RefreshButton);
+            this.Controls.Add(this.DeletionTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbmResponderBox);
             this.Controls.Add(this.BackButton);
@@ -217,5 +261,9 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.ComboBox cbmResponderBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox DeletionTextBox;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }

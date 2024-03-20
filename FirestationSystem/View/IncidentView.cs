@@ -29,6 +29,18 @@ namespace FirestationSystem.View
         };
         IFirebaseClient client;
 
+        private void RefreshDisasterGrid()
+        {
+            DataGrid.DataSource = null;
+            DataGrid.Rows.Clear();
+            FirebaseResponse response = client.Get("Disasters/");
+            Dictionary<string, Incidents> incidentDict = response.ResultAs<Dictionary<string, Incidents>>();
+
+            List<Incidents> incidents = incidentDict.Values.ToList();
+            DataGrid.DataSource = incidents;
+            DataGrid.Refresh();
+        }
+
         private void IncidentView_Load(object sender, EventArgs e)
         {
             try
@@ -40,14 +52,11 @@ namespace FirestationSystem.View
             {
                 MessageBox.Show(ex.Message);
             }
-            FirebaseResponse response = client.Get("Disasters/");
-            Dictionary<string, Incidents> incidentDict = response.ResultAs<Dictionary<string, Incidents>>();
+
+            RefreshDisasterGrid();
 
             FirebaseResponse TeamsResponse = client.Get("Teams/");
             Dictionary<string, string> teamsResult = TeamsResponse.ResultAs<Dictionary<string, string>>();
-
-            List<Incidents> incidents = incidentDict.Values.ToList();
-            DataGrid.DataSource = incidents;
 
             foreach (var teamName in teamsResult.Values)
             {
@@ -55,12 +64,9 @@ namespace FirestationSystem.View
             }
         }
 
-
-
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             var incidentReportController = new IncidentReport(client);
-
             incidentReportController.AddIncident(NameTextBox.Text, GpsTextBox.Text, TypeTextBox.Text, DescriptionTextBox.Text, StatusTextBox.Text, cbmResponderBox.SelectedItem.ToString());
 
             NameTextBox.Clear();
@@ -68,6 +74,20 @@ namespace FirestationSystem.View
             TypeTextBox.Clear();
             DescriptionTextBox.Clear();
             StatusTextBox.Clear();
+
+            RefreshDisasterGrid();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var incidentReportController = new IncidentReport(client);
+            incidentReportController.RemoveIncident(DeletionTextBox.Text);
+            RefreshDisasterGrid();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            RefreshDisasterGrid();
         }
 
         private void BackButton_Click(object sender, EventArgs e)

@@ -30,5 +30,12 @@ namespace FirestationSystem.View
             IncidentView incidentView = new IncidentView();
             incidentView.Show();
         }
+
+        private void VehicleViewButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            VehicleView vehicleView = new VehicleView();
+            vehicleView.Show();
+        }
     }
 }
