@@ -76,6 +76,7 @@
     <Compile Include="Model\Incidents.cs" />
     <Compile Include="Model\Register.cs" />
     <Compile Include="Model\GlobalVariables.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="Model\Vehicles.cs" />
     <Compile Include="View\AccountView.cs">
       <SubType>Form</SubType>

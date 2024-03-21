@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.DataGrid = new System.Windows.Forms.DataGridView();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,14 +40,25 @@
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowHeadersWidth = 51;
             this.DataGrid.RowTemplate.Height = 24;
-            this.DataGrid.Size = new System.Drawing.Size(776, 426);
+            this.DataGrid.Size = new System.Drawing.Size(523, 272);
             this.DataGrid.TabIndex = 0;
+            // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(12, 12);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(33, 26);
+            this.BackButton.TabIndex = 23;
+            this.BackButton.Text = "<";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // EmployeesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(551, 299);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.DataGrid);
             this.Name = "EmployeesView";
             this.Text = "EmployeesView";
@@ -59,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DataGrid;
+        private System.Windows.Forms.Button BackButton;
     }
 }

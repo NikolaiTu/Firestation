@@ -16,6 +16,11 @@ namespace FirestationSystem.View
 {
     public partial class EmployeesView : Form
     {
+        public EmployeesView()
+        {
+            InitializeComponent();
+        }
+
         IFirebaseConfig config = new FirebaseConfig()
         {
             AuthSecret = "WPe2TkIbVDH9tblNk7E3nRvsdRxqhuvGUhdWjZKn",
@@ -28,21 +33,32 @@ namespace FirestationSystem.View
             DataGrid.DataSource = null;
             DataGrid.Rows.Clear();
             FirebaseResponse response = client.Get("Users/");
-            Dictionary<string, Register> result = response.ResultAs<Dictionary<string, Register>>();
+            Dictionary<string, Users> result = response.ResultAs<Dictionary<string, Users>>();
 
-            List<Register> users = result.Values.ToList();
+            List<Users> users = result.Values.ToList();
             DataGrid.DataSource = users;
             DataGrid.Refresh();
         }
 
-        public EmployeesView()
-        {
-            InitializeComponent();
-        }
-
         private void EmployeesView_Load(object sender, EventArgs e)
         {
-           // RefreshDisasterGrid();
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+                MessageBox.Show("Connected");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            RefreshDisasterGrid();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            PortalView portalView = new PortalView();
+            portalView.Show();
         }
     }
 }
