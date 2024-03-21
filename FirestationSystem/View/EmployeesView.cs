@@ -1,7 +1,6 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using FirestationSystem.Controller;
 using FirestationSystem.Model;
 using System;
 using System.Collections.Generic;
@@ -15,9 +14,9 @@ using System.Windows.Forms;
 
 namespace FirestationSystem.View
 {
-    public partial class VehicleView : Form
+    public partial class EmployeesView : Form
     {
-        public VehicleView()
+        public EmployeesView()
         {
             InitializeComponent();
         }
@@ -33,15 +32,15 @@ namespace FirestationSystem.View
         {
             DataGrid.DataSource = null;
             DataGrid.Rows.Clear();
-            FirebaseResponse response = client.Get("Vehicles/");
-            Dictionary<string, Vehicles> vehicletDict = response.ResultAs<Dictionary<string, Vehicles>>();
+            FirebaseResponse response = client.Get("Users/");
+            Dictionary<string, Users> result = response.ResultAs<Dictionary<string, Users>>();
 
-            List<Vehicles> vehicles = vehicletDict.Values.ToList();
-            DataGrid.DataSource = vehicles;
+            List<Users> users = result.Values.ToList();
+            DataGrid.DataSource = users;
             DataGrid.Refresh();
         }
 
-        private void VehicleView_Load(object sender, EventArgs e)
+        private void EmployeesView_Load(object sender, EventArgs e)
         {
             try
             {
@@ -52,26 +51,6 @@ namespace FirestationSystem.View
             {
                 MessageBox.Show(ex.Message);
             }
-            RefreshDisasterGrid();
-        }
-
-        private void SubmitButton_Click(object sender, EventArgs e)
-        {
-            var vehicleSubmissionController = new VehicleLogging(client);
-            vehicleSubmissionController.AddVehicle(NameTextBox.Text, StatusTextBox.Text, ShiftStartTimeTextBox.Text, ShiftEndTimeTextBox.Text);
-
-            NameTextBox.Clear();
-            StatusTextBox.Clear();
-            ShiftStartTimeTextBox.Clear();
-            ShiftEndTimeTextBox.Clear();
-
-            RefreshDisasterGrid();
-        }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            var vehicleSubmissionController = new VehicleLogging(client);
-            vehicleSubmissionController.RemoveVehicle(DeletionTextBox.Text);
             RefreshDisasterGrid();
         }
 
