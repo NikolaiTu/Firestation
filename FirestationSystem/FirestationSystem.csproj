@@ -83,6 +83,12 @@
     <Compile Include="View\AccountView.Designer.cs">
       <DependentUpon>AccountView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EmployeesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeesView.Designer.cs">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IncidentView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="View\AccountView.resx">
       <DependentUpon>AccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeesView.resx">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\IncidentView.resx">
       <DependentUpon>IncidentView.cs</DependentUpon>

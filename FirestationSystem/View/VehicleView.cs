@@ -67,5 +67,19 @@ namespace FirestationSystem.View
 
             RefreshDisasterGrid();
         }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var vehicleSubmissionController = new VehicleLogging(client);
+            vehicleSubmissionController.RemoveVehicle(DeletionTextBox.Text);
+            RefreshDisasterGrid();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            PortalView portalView = new PortalView();
+            portalView.Show();
+        }
     }
 }

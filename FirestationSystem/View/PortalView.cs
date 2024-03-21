@@ -37,5 +37,12 @@ namespace FirestationSystem.View
             VehicleView vehicleView = new VehicleView();
             vehicleView.Show();
         }
+
+        private void EmployeesView_Click(object sender, EventArgs e)
+        {
+            Hide();
+            EmployeesView employeesView = new EmployeesView();
+            employeesView.Show();
+        }
     }
 }
